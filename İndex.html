@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<title>SPORT VISION</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d18;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px;background:#101a2c;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #26334a}
+.logo{font-size:23px;font-weight:900;color:#39d98a}
+.logo span{color:white}
+nav a{color:#d8e1ef;text-decoration:none;margin-left:12px;font-size:13px}
+.hero{padding:38px 22px;background:linear-gradient(130deg,#102c37,#111b35)}
+.hero h1{font-size:34px;margin:0 0 12px}
+.hero h1 span{color:#39d98a}
+.hero p{color:#b6c5d9;line-height:1.6}
+.tag{color:#39d98a;font-size:12px;font-weight:bold}
+.container{padding:22px;max-width:850px;margin:auto}
+h2{font-size:21px}
+.card{background:#121d30;border:1px solid #263650;border-radius:14px;padding:17px;margin:15px 0}
+.match{display:flex;justify-content:space-between;align-items:center;text-align:center;gap:10px}
+.team{font-weight:bold;font-size:14px;flex:1}
+.vs{color:#8496b1;font-size:13px}
+.date{color:#91a4bd;font-size:12px;margin-bottom:16px}
+.analysis{color:#b7c7db;font-size:14px;line-height:1.6}
+.prediction{color:#39d98a;font-weight:bold;margin-top:12px}
+.label{display:inline-block;background:#1c3d38;color:#39d98a;padding:6px 10px;border-radius:20px;font-size:11px}
+.info{background:#101a2c;padding:20px;border-radius:14px;margin-top:20px}
+footer{text-align:center;padding:28px;color:#8292a9;font-size:12px;border-top:1px solid #26334a;margin-top:35px}
+button{background:#39d98a;color:#06140d;border:0;padding:12px 17px;border-radius:9px;font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">SPORT <span>VISION</span></div>
+<nav>
+<a href="#home">Главная</a>
+<a href="#matches">Матчи</a>
+<a href="#about">О нас</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="tag">SPORT VISION OFFICIAL</div>
+<h1>Смотри спорт.<br><span>Понимай игру.</span></h1>
+<p>Футбольная аналитика, обзоры матчей и независимые спортивные прогнозы в одном месте.</p>
+<button onclick="document.getElementById('matches').scrollIntoView({behavior:'smooth'})">Смотреть аналитику</button>
+</section>
+
+<main class="container">
+<h2 id="matches">⚽ Матчи и аналитика</h2>
+<p style="color:#91a4bd;font-size:13px">Демонстрационные карточки — не реальные расписания.</p>
+
+<div class="card">
+<div class="date">ПРИМЕР МАТЧА · ФУТБОЛ</div>
+<div class="match">
+<div class="team">REAL MADRID</div>
+<div class="vs">VS</div>
+<div class="team">BARCELONA</div>
+</div>
+<div class="analysis">Анализ: сравнение атакующего стиля, контроля мяча и игры в обороне.</div>
+<div class="prediction">Редакционный прогноз: пример аналитического разбора.</div>
+</div>
+
+<div class="card">
+<div class="date">ПРИМЕР МАТЧА · ФУТБОЛ</div>
+<div class="match">
+<div class="team">MAN CITY</div>
+<div class="vs">VS</div>
+<div class="team">ARSENAL</div>
+</div>
+<div class="analysis">Анализ: тактика команд, контроль центра поля и эффективность атак.</div>
+<div class="prediction">Редакционный прогноз: пример аналитического разбора.</div>
+</div>
+
+<div class="info" id="about">
+<h2>О SPORT VISION</h2>
+<p class="analysis">SPORT VISION — независимый спортивный проект. Мы публикуем футбольную аналитику, обзоры и интересные факты о командах.</p>
+</div>
+</main>
+
+<footer>
+SPORT VISION © 2026<br><br>
+Спортивная информация носит ознакомительный характер.
+</footer>
+</body>
+</html>
