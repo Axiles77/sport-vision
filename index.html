@@ -3,179 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SPORT VISION — футбольные новости, клубы, матчи и аналитика.">
 <title>SPORT VISION — Футбольный портал</title>
 <style>
+:root{
+ --bg:#07111f;--panel:#102139;--panel2:#142943;
+ --green:#36e58b;--white:#fff;--muted:#9aacc1;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#07111f;color:#fff;font-family:Arial,sans-serif}
-header{background:#0d1b2d;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-.logo{font-size:25px;font-weight:900;color:#36e58b}
-.logo span{color:#fff}
-nav{display:flex;gap:22px;flex-wrap:wrap}
-nav a{color:#dce5ef;text-decoration:none;font-size:14px}
-nav a:hover{color:#36e58b}
-.hero{min-height:430px;padding:75px 8%;display:flex;align-items:center;background:linear-gradient(90deg,rgba(3,12,25,.97),rgba(3,12,25,.25)),url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=85') center/cover}
-.hero-content{max-width:620px}
-.tag{color:#36e58b;font-weight:bold;letter-spacing:3px;font-size:13px}
-h1{font-size:clamp(36px,7vw,64px);line-height:1.08;margin:18px 0}
-.hero p{color:#d0dbe8;line-height:1.7;font-size:16px}
-.btn{display:inline-block;background:#36e58b;color:#061321;text-decoration:none;padding:14px 24px;border-radius:6px;font-weight:bold;margin-top:23px}
-.btn:hover{background:#70ffb3}
+body{background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+header{
+ position:sticky;top:0;z-index:20;background:#0b192b;
+ border-bottom:1px solid #203650;padding:16px 6%;
+ display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap
+}
+.logo{font-size:25px;font-weight:900;color:var(--green);letter-spacing:1px}
+.logo span{color:white}
+nav{display:flex;gap:19px;flex-wrap:wrap}
+nav a{font-size:14px;color:#d6e1ed}
+nav a:hover{color:var(--green)}
+.search{
+ background:#172b43;border:1px solid #29425e;border-radius:7px;
+ padding:11px;color:white;width:160px
+}
+.hero{
+ min-height:440px;padding:75px 8%;display:flex;align-items:center;
+ background:linear-gradient(90deg,rgba(3,12,25,.97),rgba(3,12,25,.3)),
+ url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=85') center/cover
+}
+.hero-content{max-width:650px}
+.eyebrow{color:var(--green);font-size:13px;font-weight:bold;letter-spacing:3px}
+h1{font-size:clamp(38px,7vw,67px);line-height:1.06;margin:20px 0}
+.hero p{color:#d4deea;font-size:16px;line-height:1.7}
+.btn{
+ display:inline-block;background:var(--green);color:#061321;
+ padding:14px 23px;border-radius:6px;font-weight:bold;margin-top:24px
+}
+.btn:hover{background:#75ffb5}
 section{padding:55px 7%}
-.section-title{font-size:28px;margin-bottom:25px}
-.section-title span{color:#36e58b}
-.matches{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.match{background:#102139;border:1px solid #203550;border-radius:12px;padding:23px;transition:.2s}
-.match:hover{transform:translateY(-5px);border-color:#36e58b}
-.match-top{display:flex;justify-content:space-between;color:#9db0c6;font-size:12px;margin-bottom:22px}
-.teams{display:flex;align-items:center;justify-content:space-around;text-align:center;gap:8px}
-.team{font-weight:bold;font-size:14px}
-.crest{font-size:38px;display:block;margin-bottom:10px}
-.vs{color:#36e58b;font-weight:bold}
-.match-note{text-align:center;color:#36e58b;font-size:12px;margin-top:20px}
-.analysis{background:#0d1b2d}
-.analysis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.article{background:#142740;padding:23px;border-radius:12px;border:1px solid #203550}
-.article h3{margin:12px 0}
-.article p{color:#aebed0;line-height:1.6;font-size:14px}
-.article small{color:#36e58b;font-weight:bold}
-.news-card{display:grid;grid-template-columns:90px 1fr;gap:17px;align-items:center;background:#102139;padding:17px;border-radius:10px;margin-bottom:13px}
-.news-icon{font-size:40px;text-align:center}
-.news-card h3{font-size:16px}
-.news-card p{color:#aebed0;font-size:13px;margin-top:7px;line-height:1.5}
-.about{background:#102139;border-radius:12px;padding:25px;line-height:1.7;color:#c4d2e2}
-footer{text-align:center;padding:30px;background:#050c16;color:#8293a8;font-size:13px}
-footer strong{color:#36e58b}
-@media(max-width:600px){
-header{justify-content:center;text-align:center}
-nav{justify-content:center;gap:14px}
-.hero{min-height:360px;padding:55px 7%}
-section{padding:40px 6%}
+.heading{font-size:29px;margin-bottom:12px}
+.heading span{color:var(--green)}
+.subtitle{color:var(--muted);font-size:14px;margin-bottom:27px;line-height:1.6}
+.club-grid,.match-grid,.info-grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:16px
+}
+.club{
+ background:var(--panel);border:1px solid #213650;border-radius:12px;
+ padding:20px 12px;text-align:center;transition:.2s
+}
+.club:hover{transform:translateY(-5px);border-color:var(--green)}
+.crest{
+ width:82px;height:82px;object-fit:contain;display:block;margin:0 auto 14px;
+ filter:drop-shadow(0 5px 8px #0005)
+}
+.club h3{font-size:14px;line-height:1.4}
+.club small{display:block;color:var(--muted);margin-top:6px;font-size:11px}
+.crest-fallback{
+ width:82px;height:82px;border-radius:50%;margin:0 auto 14px;
+ display:none;align-items:center;justify-content:center;
+ background:#203650;color:var(--green);font-weight:bold;font-size:22px
+}
+.dark-section{background:#0b192b}
+.match{
+ background:var(--panel);border:1px solid #213650;border-radius:13px;
+ padding:20px;text-align:center
+}
+.match-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:20px}
+.match-teams{display:flex;align-items:center;justify-content:space-around;gap:8px}
+.match-team{width:40%;font-size:13px;font-weight:bold}
+.match-team img{width:55px;height:55px;object-fit:contain;display:block;margin:0 auto 9px}
+.vs{font-weight:bold;color:var(--green)}
+.match-note{color:var(--green);font-size:11px;margin-top:19px}
+.info-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.info-card{background:var(--panel);padding:23px;border:1px solid #213650;border-radius:12px}
+.info-card small{color:var(--green);font-weight:bold}
+.info-card h3{margin:12px 0}
+.info-card p{color:#b5c4d5;font-size:14px;line-height:1.65}
+.news{
+ display:flex;align-items:center;gap:17px;background:var(--panel);
+ border-radius:11px;padding:17px;margin-bottom:13px
+}
+.news-icon{font-size:36px}
+.news p{color:var(--muted);font-size:13px;line-height:1.5;margin-top:6px}
+.about{background:var(--panel);border-radius:12px;padding:25px;color:#c5d3e2;line-height:1.8}
+.empty{display:none;color:var(--muted);padding:20px}
+footer{text-align:center;padding:32px;background:#040b14;color:#8293a8;font-size:13px;line-height:2}
+footer strong{color:var(--green)}
+@media(max-width:650px){
+ header{position:relative;justify-content:center}
+ nav{justify-content:center;gap:13px}
+ .search{width:100%}
+ .hero{min-height:360px;padding:55px 7%}
+ section{padding:42px 6%}
+ .club-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .heading{font-size:25px}
 }
 </style>
 </head>
 <body>
 
 <header>
- <div class="logo">SPORT <span>VISION</span></div>
+ <a href="#home" class="logo">SPORT <span>VISION</span></a>
  <nav>
   <a href="#home">Главная</a>
   <a href="#matches">Матчи</a>
+  <a href="#clubs">Клубы</a>
   <a href="#analysis">Аналитика</a>
   <a href="#news">Новости</a>
-  <a href="#about">О проекте</a>
  </nav>
+ <input class="search" id="search" type="search" placeholder="Найти клуб..." aria-label="Поиск клуба">
 </header>
 
+<main>
 <div class="hero" id="home">
  <div class="hero-content">
-  <div class="tag">YOUR WORLD OF FOOTBALL</div>
+  <div class="eyebrow">YOUR WORLD OF FOOTBALL</div>
   <h1>МИР СПОРТА.<br>В ОДНОМ МЕСТЕ.</h1>
-  <p>Футбольные новости, обзоры матчей, интересная статистика и независимая спортивная аналитика.</p>
-  <a class="btn" href="#matches">СМОТРЕТЬ МАТЧИ</a>
+  <p>Футбольные клубы, настоящие эмблемы, новости, статистика и независимая спортивная аналитика.</p>
+  <a class="btn" href="#clubs">СМОТРЕТЬ КЛУБЫ</a>
  </div>
 </div>
 
-<section id="matches">
- <h2 class="section-title">ПОПУЛЯРНЫЕ <span>МАТЧИ</span></h2>
- <div class="matches">
-
-  <div class="match">
-   <div class="match-top"><span>ПРИМЕР МАТЧА</span><span>ФУТБОЛ</span></div>
-   <div class="teams">
-    <div class="team"><span class="crest">⚪</span>Real Madrid</div>
-    <div class="vs">VS</div>
-    <div class="team"><span class="crest">🔵🔴</span>Barcelona</div>
-   </div>
-   <div class="match-note">ОБЗОР И АНАЛИЗ</div>
-  </div>
-
-  <div class="match">
-   <div class="match-top"><span>ПРИМЕР МАТЧА</span><span>ФУТБОЛ</span></div>
-   <div class="teams">
-    <div class="team"><span class="crest">🔵</span>Man City</div>
-    <div class="vs">VS</div>
-    <div class="team"><span class="crest">🔴</span>Arsenal</div>
-   </div>
-   <div class="match-note">ОБЗОР И АНАЛИЗ</div>
-  </div>
-
-  <div class="match">
-   <div class="match-top"><span>ПРИМЕР МАТЧА</span><span>ФУТБОЛ</span></div>
-   <div class="teams">
-    <div class="team"><span class="crest">🔵🔴</span>PSG</div>
-    <div class="vs">VS</div>
-    <div class="team"><span class="crest">🔴⚪</span>Bayern</div>
-   </div>
-   <div class="match-note">ОБЗОР И АНАЛИЗ</div>
-  </div>
-
- </div>
- <p style="color:#8293a8;font-size:12px;margin-top:16px">Это демонстрационные карточки, а не расписание реальных матчей.</p>
+<section id="clubs">
+ <h2 class="heading">НАШИ <span>КЛУБЫ</span></h2>
+ <p class="subtitle">Популярные футбольные команды мира. Нажми на поиск, чтобы найти клуб.</p>
+ <div class="club-grid" id="clubGrid"></div>
+ <p class="empty" id="empty">Клубы не найдены.</p>
 </section>
 
-<section class="analysis" id="analysis">
- <h2 class="section-title">СПОРТИВНАЯ <span>АНАЛИТИКА</span></h2>
- <div class="analysis-grid">
-  <div class="article">
+<section class="dark-section" id="matches">
+ <h2 class="heading">ПОПУЛЯРНЫЕ <span>МАТЧИ</span></h2>
+ <p class="subtitle">Демонстрационные пары команд для оформления сайта.</p>
+ <div class="match-grid" id="matchGrid"></div>
+</section>
+
+<section id="analysis">
+ <h2 class="heading">СПОРТИВНАЯ <span>АНАЛИТИКА</span></h2>
+ <p class="subtitle">Разбираем футбольные события и статистику.</p>
+ <div class="info-grid">
+  <article class="info-card">
    <small>АНАЛИЗ</small>
    <h3>Форма команд</h3>
-   <p>Изучаем последние результаты, сильные стороны и игру футбольных клубов.</p>
-  </div>
-  <div class="article">
+   <p>Изучение последних результатов, сильных сторон и игровых особенностей клубов.</p>
+  </article>
+  <article class="info-card">
    <small>СТАТИСТИКА</small>
    <h3>Цифры матча</h3>
-   <p>Владение мячом, удары, передачи и другие футбольные показатели.</p>
-  </div>
-  <div class="article">
+   <p>Владение мячом, удары, передачи, голы и другие футбольные показатели.</p>
+  </article>
+  <article class="info-card">
    <small>МНЕНИЕ РЕДАКЦИИ</small>
-   <h3>Разбор встречи</h3>
-   <p>Независимый анализ предстоящих и завершённых футбольных матчей.</p>
-  </div>
+   <h3>Прогноз матча</h3>
+   <p>Аргументированный редакционный разбор возможного развития игры. Это спортивное мнение, а не гарантия результата.</p>
+  </article>
  </div>
 </section>
 
-<section id="news">
- <h2 class="section-title">ПОСЛЕДНИЕ <span>НОВОСТИ</span></h2>
-
- <div class="news-card">
+<section class="dark-section" id="news">
+ <h2 class="heading">ФУТБОЛЬНЫЕ <span>НОВОСТИ</span></h2>
+ <p class="subtitle">Раздел для публикации новостей SPORT VISION.</p>
+ <div class="news">
   <div class="news-icon">⚽</div>
-  <div>
-   <h3>Мир большого футбола</h3>
-   <p>Самые интересные события, клубы и игроки мирового футбола.</p>
-  </div>
+  <div><h3>Мир большого футбола</h3><p>Новости известных клубов и игроков.</p></div>
  </div>
-
- <div class="news-card">
+ <div class="news">
   <div class="news-icon">🏆</div>
-  <div>
-   <h3>Европейские турниры</h3>
-   <p>Обзоры соревнований и выступлений известных команд.</p>
-  </div>
+  <div><h3>Европейские турниры</h3><p>Обзоры соревнований и футбольных событий.</p></div>
  </div>
-
- <div class="news-card">
+ <div class="news">
   <div class="news-icon">📊</div>
-  <div>
-   <h3>Футбольная статистика</h3>
-   <p>Интересные цифры, результаты и достижения игроков.</p>
-  </div>
+  <div><h3>Футбольная статистика</h3><p>Интересные цифры, достижения и результаты.</p></div>
  </div>
 </section>
 
-<section id="about" class="analysis">
- <h2 class="section-title">О ПРОЕКТЕ <span>SPORT VISION</span></h2>
+<section id="about">
+ <h2 class="heading">О ПРОЕКТЕ <span>SPORT VISION</span></h2>
  <div class="about">
-  SPORT VISION — независимый спортивный проект для любителей футбола.
-  Здесь будут публиковаться новости, аналитика, обзоры матчей и статистика.
+  SPORT VISION — независимый футбольный портал для любителей спорта.
+  Здесь будут публиковаться новости, обзоры, аналитика и статистика.
   Наша цель — сделать футбол ещё интереснее!
  </div>
 </section>
+</main>
 
 <footer>
- <strong>SPORT VISION</strong><br><br>
- © 2026 SPORT VISION. Все права защищены.
+ <strong>SPORT VISION</strong><br>
+ Футбол. Аналитика. Новости.<br>
+ © 2026 SPORT VISION
 </footer>
+
+<script>
+const clubs = [
+ {name:"Real Madrid",country:"Испания",id:"86",short:"RM"},
+ {name:"Barcelona",country:"Испания",id:"83",short:"FCB"},
+ {name:"Manchester City",country:"Англия",id:"382",short:"MCI"},
+ {name:"Arsenal",country:"Англия",id:"359",short:"ARS"},
+ {name:"PSG",country:"Франция",id:"160",short:"PSG"},
+ {name:"Bayern Munich",country:"Германия",id:"132",short:"FCB"},
+ {name:"Liverpool",country:"Англия",id:"364",short:"LFC"},
+ {name:"Chelsea",country:"Англия",id:"363",short:"CFC"},
+ {name:"Manchester United",country:"Англия",id:"360",short:"MU"},
+ {name:"AC Milan",country:"Италия",id:"103",short:"ACM"},
+ {name:"Juventus",country:"Италия",id:"111",short:"JUV"},
+ {name:"Inter",country:"Италия",id:"110",short:"INT"},
+ {name:"Borussia Dortmund",country:"Германия",id:"124",short:"BVB"},
+ {name:"Galatasaray",country:"Турция",id:"432",short:"GS"},
+ {name:"Fenerbahçe",country:"Турция",id:"436",short:"FB"},
+ {name:"Qarabağ FK",country:"Азербайджан",id:"6076",short:"QAR"}
+];
+
+const logoUrl = id =>
+ "https://a.espncdn.com/i/teamlogos/soccer/500/"+id+".png";
+
+function makeLogo(club, className){
+ const img=document.createElement("img");
+ img.src=logoUrl(club.id);
+ img.alt="Эмблема "+club.name;
+ img.className=className;
+ img.loading="lazy";
+ img.onerror=function(){
+  const fallback=document.createElement("div");
+  fallback.className="crest-fallback";
+  fallback.style.display="flex";
+  fallback.textContent=club.short;
+  this.replaceWith(fallback);
+ };
+ return img;
+}
+
+const clubGrid=document.getElementById("clubGrid");
+
+function renderClubs(query=""){
+ clubGrid.innerHTML="";
+ const filtered=clubs.filter(c=>
+  (c.name+" "+c.country).toLowerCase().includes(query.toLowerCase())
+ );
+ document.getElementById("empty").style.display=filtered.length?"none":"block";
+
+ filtered.forEach(club=>{
+  const card=document.createElement("article");
+  card.className="club";
+  card.appendChild(makeLogo(club,"crest"));
+  const title=document.createElement("h3");
+  title.textContent=club.name;
+  const country=document.createElement("small");
+  country.textContent=club.country;
+  card.append(title,country);
+  clubGrid.appendChild(card);
+ });
+}
+
+renderClubs();
+
+document.getElementById("search").addEventListener("input",e=>{
+ renderClubs(e.target.value);
+});
+
+const matches=[
+ ["Real Madrid","Barcelona"],
+ ["Manchester City","Arsenal"],
+ ["PSG","Bayern Munich"],
+ ["Liverpool","Chelsea"],
+ ["Milan","Inter"],
+ ["Qarabağ FK","Fenerbahçe"]
+];
+
+const matchGrid=document.getElementById("matchGrid");
+
+matches.forEach(pair=>{
+ const home=clubs.find(c=>c.name===pair[0]);
+ const away=clubs.find(c=>c.name===pair[1]);
+ if(!home||!away)return;
+
+ const card=document.createElement("article");
+ card.className="match";
+
+ const top=document.createElement("div");
+ top.className="match-top";
+ top.innerHTML="<span>ПРИМЕР МАТЧА</span><span>ФУТБОЛ</span>";
+
+ const teams=document.createElement("div");
+ teams.className="match-teams";
+
+ const left=document.createElement("div");
+ left.className="match-team";
+ left.appendChild(makeLogo(home,""));
+ const leftName=document.createElement("span");
+ leftName.textContent=home.name;
+ left.appendChild(leftName);
+
+ const vs=document.createElement("span");
+ vs.className="vs";
+ vs.textContent="VS";
+
+ const right=document.createElement("div");
+ right.className="match-team";
+ right.appendChild(makeLogo(away,""));
+ const rightName=document.createElement("span");
+ rightName.textContent=away.name;
+ right.appendChild(rightName);
+
+ teams.append(left,vs,right);
+
+ const note=document.createElement("div");
+ note.className="match-note";
+ note.textContent="ОБЗОР И АНАЛИЗ";
+
+ card.append(top,teams,note);
+ matchGrid.appendChild(card);
+});
+</script>
 
 </body>
 </html>
