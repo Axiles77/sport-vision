@@ -5,86 +5,146 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d18">
-<title>SPORT VISION</title>
+<title>SPORT VISION — Футбольный портал</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080d18;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px;background:#101a2c;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #26334a}
-.logo{font-size:23px;font-weight:900;color:#39d98a}
+body{margin:0;background:#080d18;color:#f5f7fc;font-family:Arial,sans-serif}
+header{background:#101a2b;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #26364c;position:sticky;top:0;z-index:5}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px;color:#36e39a}
 .logo span{color:white}
-nav a{color:#d8e1ef;text-decoration:none;margin-left:12px;font-size:13px}
-.hero{padding:38px 22px;background:linear-gradient(130deg,#102c37,#111b35)}
-.hero h1{font-size:34px;margin:0 0 12px}
-.hero h1 span{color:#39d98a}
-.hero p{color:#b6c5d9;line-height:1.6}
-.tag{color:#39d98a;font-size:12px;font-weight:bold}
-.container{padding:22px;max-width:850px;margin:auto}
-h2{font-size:21px}
-.card{background:#121d30;border:1px solid #263650;border-radius:14px;padding:17px;margin:15px 0}
-.match{display:flex;justify-content:space-between;align-items:center;text-align:center;gap:10px}
-.team{font-weight:bold;font-size:14px;flex:1}
-.vs{color:#8496b1;font-size:13px}
-.date{color:#91a4bd;font-size:12px;margin-bottom:16px}
-.analysis{color:#b7c7db;font-size:14px;line-height:1.6}
-.prediction{color:#39d98a;font-weight:bold;margin-top:12px}
-.label{display:inline-block;background:#1c3d38;color:#39d98a;padding:6px 10px;border-radius:20px;font-size:11px}
-.info{background:#101a2c;padding:20px;border-radius:14px;margin-top:20px}
-footer{text-align:center;padding:28px;color:#8292a9;font-size:12px;border-top:1px solid #26334a;margin-top:35px}
-button{background:#39d98a;color:#06140d;border:0;padding:12px 17px;border-radius:9px;font-weight:bold}
+nav{display:flex;gap:20px}
+nav a{color:#d4deed;text-decoration:none;font-size:14px}
+nav a:hover{color:#36e39a}
+.hero{padding:65px 7%;background:linear-gradient(110deg,#102d38,#111a32 65%,#142b32)}
+.tag{color:#36e39a;font-size:12px;font-weight:bold;letter-spacing:2px}
+.hero h1{font-size:clamp(35px,7vw,58px);line-height:1.1;margin:18px 0}
+.hero h1 span{color:#36e39a}
+.hero p{color:#b5c5d9;max-width:570px;line-height:1.7}
+.btn{display:inline-block;background:#36e39a;color:#07140e;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:15px}
+.container{max-width:1100px;margin:auto;padding:30px 20px}
+.section-title{font-size:24px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:17px}
+.card{background:#111d30;border:1px solid #263950;border-radius:14px;padding:20px}
+.card h3{margin:10px 0}
+.muted{color:#9aacc3;font-size:13px;line-height:1.6}
+.match{display:flex;justify-content:space-between;align-items:center;text-align:center;gap:8px;margin:20px 0}
+.team{font-weight:bold;flex:1;font-size:14px}
+.vs{color:#36e39a;font-weight:bold}
+.prediction{border-top:1px solid #293950;padding-top:13px;color:#36e39a;font-size:13px}
+.label{font-size:11px;color:#36e39a;letter-spacing:1px}
+.news{margin-bottom:15px}
+.news h3{font-size:17px}
+footer{background:#101a2b;text-align:center;padding:30px 15px;color:#9aacc3;font-size:13px;margin-top:30px}
+.menu-btn{display:none;background:#22334b;color:white;border:0;padding:9px;border-radius:7px}
+@media(max-width:600px){
+header{padding:15px}
+nav{display:none;position:absolute;top:60px;left:0;right:0;background:#101a2b;padding:20px;flex-direction:column}
+nav.open{display:flex}
+.menu-btn{display:block}
+.hero{padding:48px 22px}
+}
 </style>
 </head>
 <body>
+
 <header>
 <div class="logo">SPORT <span>VISION</span></div>
+<button class="menu-btn" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
 <nav>
 <a href="#home">Главная</a>
 <a href="#matches">Матчи</a>
-<a href="#about">О нас</a>
+<a href="#analysis">Аналитика</a>
+<a href="#news">Новости</a>
 </nav>
 </header>
 
 <section class="hero" id="home">
-<div class="tag">SPORT VISION OFFICIAL</div>
-<h1>Смотри спорт.<br><span>Понимай игру.</span></h1>
-<p>Футбольная аналитика, обзоры матчей и независимые спортивные прогнозы в одном месте.</p>
-<button onclick="document.getElementById('matches').scrollIntoView({behavior:'smooth'})">Смотреть аналитику</button>
+<div class="tag">YOUR WORLD OF FOOTBALL</div>
+<h1>МИР СПОРТА.<br><span>В ОДНОМ МЕСТЕ.</span></h1>
+<p>Добро пожаловать в SPORT VISION! Футбольная аналитика, обзоры, статистика и интересные материалы о любимых командах.</p>
+<a class="btn" href="#matches">Изучить матчи →</a>
 </section>
 
 <main class="container">
-<h2 id="matches">⚽ Матчи и аналитика</h2>
-<p style="color:#91a4bd;font-size:13px">Демонстрационные карточки — не реальные расписания.</p>
 
+<section id="matches">
+<h2 class="section-title">⚽ Матчи дня</h2>
+<p class="muted">Демонстрационные матчи для оформления сайта. Не являются расписанием реальных игр.</p>
+<div class="grid">
 <div class="card">
-<div class="date">ПРИМЕР МАТЧА · ФУТБОЛ</div>
+<div class="label">ПРИМЕР МАТЧА</div>
 <div class="match">
 <div class="team">REAL MADRID</div>
 <div class="vs">VS</div>
 <div class="team">BARCELONA</div>
 </div>
-<div class="analysis">Анализ: сравнение атакующего стиля, контроля мяча и игры в обороне.</div>
-<div class="prediction">Редакционный прогноз: пример аналитического разбора.</div>
+<div class="prediction">Аналитика: сравнение атак и обороны</div>
 </div>
-
 <div class="card">
-<div class="date">ПРИМЕР МАТЧА · ФУТБОЛ</div>
+<div class="label">ПРИМЕР МАТЧА</div>
 <div class="match">
 <div class="team">MAN CITY</div>
 <div class="vs">VS</div>
 <div class="team">ARSENAL</div>
 </div>
-<div class="analysis">Анализ: тактика команд, контроль центра поля и эффективность атак.</div>
-<div class="prediction">Редакционный прогноз: пример аналитического разбора.</div>
+<div class="prediction">Аналитика: контроль мяча и тактика</div>
 </div>
+<div class="card">
+<div class="label">ПРИМЕР МАТЧА</div>
+<div class="match">
+<div class="team">PSG</div>
+<div class="vs">VS</div>
+<div class="team">BAYERN</div>
+</div>
+<div class="prediction">Аналитика: атака и командная игра</div>
+</div>
+</div>
+</section>
 
-<div class="info" id="about">
-<h2>О SPORT VISION</h2>
-<p class="analysis">SPORT VISION — независимый спортивный проект. Мы публикуем футбольную аналитику, обзоры и интересные факты о командах.</p>
+<section id="analysis" style="margin-top:45px">
+<h2 class="section-title">📊 Аналитика SPORT VISION</h2>
+<div class="grid">
+<div class="card">
+<h3>Тактика команд</h3>
+<p class="muted">Изучаем игровые схемы, стратегию и стиль футбольных клубов.</p>
 </div>
+<div class="card">
+<h3>Статистика</h3>
+<p class="muted">Разбираем результаты, владение мячом, атаки и защиту.</p>
+</div>
+<div class="card">
+<h3>Прогнозы</h3>
+<p class="muted">Редакционные прогнозы с объяснением факторов и возможных исходов.</p>
+</div>
+</div>
+</section>
+
+<section id="news" style="margin-top:45px">
+<h2 class="section-title">📰 Последние новости</h2>
+<div class="card news">
+<div class="label">ФУТБОЛЬНЫЙ МИР</div>
+<h3>Добро пожаловать в SPORT VISION</h3>
+<p class="muted">Здесь будут публиковаться футбольные новости, обзоры и интересные спортивные события.</p>
+</div>
+<div class="card news">
+<div class="label">АНАЛИТИКА</div>
+<h3>Футбол — это больше, чем результат</h3>
+<p class="muted">Тактика, командная работа и статистика помогают лучше понимать игру.</p>
+</div>
+</section>
+
+<section class="card" style="margin-top:35px;text-align:center">
+<h2>SPORT VISION</h2>
+<p class="muted">Твой футбольный мир начинается здесь.</p>
+</section>
+
 </main>
 
 <footer>
-SPORT VISION © 2026<br><br>
-Спортивная информация носит ознакомительный характер.
+<div class="logo">SPORT VISION</div>
+<p>© 2026 SPORT VISION. Все права защищены.</p>
+<p>Спортивная информация носит ознакомительный характер.</p>
 </footer>
+
 </body>
 </html>
